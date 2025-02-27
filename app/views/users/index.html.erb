@@ -1,0 +1,59 @@
+
+
+<h1 class="text-center mt-4 mb-4 text-white">Bloggers</h1>
+
+<div class="row justify-content-md-center ">
+  <%= link_to "New User", signup_path, class:"btn btn-primary mb-3 text-center col-2" %>
+</div>
+
+<div class="row justify-content-md-center mt-3 mb-1 ">
+  <div class="apple_pagination col-3">
+    <%= will_paginate @users, :container => false %>
+  </div>
+</div>
+
+<div class="container">
+  <% @users.each do |user| %>
+    <div class="row justify-content-md-center ">
+      <div class="col-6 mt-0 ">
+        <div class="card text-center shadow mb-0 bg-white rounded">
+          <div class="card-header fst-italic">
+            <%= link_to user.username, user, class: "link-success text-decoration-none"  if user %>
+          </div>
+
+          <%= link_to gravatar_for(user, size: 150), user %>
+
+          <div class="mt-1 fst-italic fw-bold">
+            <%= pluralize(user.articles.count, "article") %>
+          </div>
+
+          <div class="card-body">
+            <%= link_to "View Profile", user, class:"btn btn-outline-success" %>
+
+            <% if logged_in? && current_user == user %>
+              <%= link_to "Edit Profile", edit_user_path(user), class:"btn btn-outline-info" %>
+            <% end %>
+
+            <% if logged_in? && current_user.admin? %>
+              <%= link_to "delete", user_path(user), 
+                      method: :delete, 
+                      data: { turbo_confirm: "Are you sure?", turbo_method: "delete" }, 
+                      class:"btn btn-outline-danger" %>
+            <% end %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+
+</div>
+
+<div class="row justify-content-md-center mt-1 mb-1 ">
+  <div class="apple_pagination col-3">
+    <%= will_paginate @users, :container => false %>
+  </div>
+</div>

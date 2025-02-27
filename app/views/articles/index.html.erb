@@ -1,0 +1,23 @@
+
+
+<h1 class="text-center mt-4 mb-4 text-white">Listing All Articles</h1>
+
+<% if logged_in? %>
+  <div class="row justify-content-md-center ">
+    <%= link_to "New Article", new_article_path, class:"btn btn-primary mb-3 text-center col-2" %>
+  </div>
+<% end %>
+
+<div class="row justify-content-md-center mt-3 mb-1 ">
+  <div class="apple_pagination col-3">
+    <%= will_paginate @articles, :container => false %>
+  </div>
+</div>
+
+<%=  render 'article' %>
+
+<div class="row justify-content-md-center mt-3 mb-1 ">
+  <div class="apple_pagination col-3">
+    <%= will_paginate @articles, :container => false %>
+  </div>
+</div>

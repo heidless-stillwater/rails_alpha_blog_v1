@@ -1,0 +1,38 @@
+
+<div class="row justify-content-center">
+  <div class="col-4">
+    <%= render 'shared/errors', obj: @user %>
+    <%= form_with(model: @user, class: "shadow p-3 mb-3 bg-primary rounded", data: {turbo: false}, local: true) do |f| %>
+      <div class="form-group row">
+        <%= f.label :username, class: "col-2 mb-3 col-form-label text-light" %>
+        <div class="col-10">
+          <%= f.text_field :username, class:"form-control mb-3 shadow rounded", placeholder: "enter your username..." %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :email, class: "col-2 mb-3 col-form-label text-light" %>
+        <div class="col-10">
+          <%= f.email_field :email, class:"form-control mb-3 shadow rounded", placeholder: "enter your email..." %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :password, class: "col-2 mb-3 col-form-label text-light" %>
+        <div class="col-10">
+          <%= f.password_field :password, class:"form-control mb-3 shadow rounded" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.submit(@user.new_record? ? "signup" : "update account", class: "btn btn-primary btn-outline-light btn-lg d-grid gap-2 col-5 mx-auto mt-4") %>
+      </div>
+
+    <% end %>
+
+    <div class="mb-3">
+      <%= link_to '[ Cancel and return to articles listing ]', articles_path, class: "text-info row justify-content-center" %>
+    </div>
+
+  </div>
+</div>

@@ -60,4 +60,4 @@ end
 
 gem "dotenv-rails", "~> 2.8"
 gem "will_paginate", "~> 4.0"
-gem "nokogiri", "= 1.16.6"
+gem "nokogiri", "1.18.3"

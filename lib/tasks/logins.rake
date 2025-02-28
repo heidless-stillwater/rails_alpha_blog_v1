@@ -5,7 +5,7 @@ namespace :logins do
 
     # admin username
     username = "arjuna"
-    email = "arjuna@test.com"
+    email = "rob.lockhart@yahoo.co.uk"
     password = "password"
 
     user = User.create!(

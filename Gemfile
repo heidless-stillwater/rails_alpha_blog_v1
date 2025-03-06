@@ -61,6 +61,6 @@ group :test do
   gem "shoulda-matchers", "~> 6.0"
 end
 
-gem "dotenv-rails", "~> 2.8"
+gem "dotenv-rails", "~> 3.1"
 gem "will_paginate", "~> 4.0"
 gem "nokogiri", "= 1.16.6"
